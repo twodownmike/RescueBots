@@ -862,6 +862,316 @@
         }
         .unlock-content h2 { font-family: 'Orbitron', sans-serif; font-size: 2.5em; color: #ffd700; text-transform: uppercase; letter-spacing: 5px; }
         .unlock-content p { font-family: 'Orbitron', sans-serif; font-size: 1.5em; color: #00d4ff; }
+        /* Grade Selector Styles */
+        .grade-selector {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0 30px;
+            flex-wrap: wrap;
+        }
+        .grade-btn {
+            background: linear-gradient(145deg, #1a1a2e, #0d1b2a);
+            border: 3px solid #555;
+            padding: 15px 25px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1em;
+            color: #888;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px), 0 10px);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            min-width: 160px;
+            text-align: center;
+        }
+        .grade-btn:hover {
+            border-color: #00d4ff;
+            color: #00d4ff;
+            transform: scale(1.05);
+        }
+        .grade-btn.active {
+            border-color: #ffd700;
+            color: #ffd700;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+        }
+        .grade-btn.kindergarten.active { border-color: #33cc33; color: #33cc33; box-shadow: 0 0 20px rgba(51, 204, 51, 0.4); }
+        .grade-btn.grade1.active { border-color: #ffd700; color: #ffd700; box-shadow: 0 0 20px rgba(255, 215, 0, 0.4); }
+        .grade-btn.grade2.active { border-color: #ff6b6b; color: #ff6b6b; box-shadow: 0 0 20px rgba(255, 107, 107, 0.4); }
+        .grade-stars {
+            display: block;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+        .grade-label {
+            display: block;
+            font-size: 0.9em;
+        }
+        .current-grade-display {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9em;
+            color: #888;
+            text-align: center;
+            margin-top: 5px;
+            letter-spacing: 2px;
+        }
+        .current-grade-display span {
+            color: #ffd700;
+        }
+        /* 3D Shape styles */
+        .shape.cube {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateX(-20deg) rotateY(30deg);
+            animation: rotateCube 4s linear infinite;
+        }
+        @keyframes rotateCube {
+            0% { transform: rotateX(-20deg) rotateY(0deg); }
+            100% { transform: rotateX(-20deg) rotateY(360deg); }
+        }
+        .cube-face {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            border: 2px solid rgba(255,255,255,0.3);
+            opacity: 0.9;
+        }
+        .cube-face.front { transform: translateZ(50px); }
+        .cube-face.back { transform: translateZ(-50px) rotateY(180deg); }
+        .cube-face.left { transform: translateX(-50px) rotateY(-90deg); }
+        .cube-face.right { transform: translateX(50px) rotateY(90deg); }
+        .cube-face.top { transform: translateY(-50px) rotateX(90deg); }
+        .cube-face.bottom { transform: translateY(50px) rotateX(-90deg); }
+        .shape.sphere {
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle at 30% 30%, #74b9ff, #0984e3, #0652DD);
+            border-radius: 50%;
+            box-shadow: inset -20px -20px 40px rgba(0,0,0,0.3), 0 0 30px rgba(116, 185, 255, 0.5);
+        }
+        .shape.cylinder {
+            width: 80px;
+            height: 120px;
+            background: linear-gradient(90deg, #00b894, #00a085, #00b894);
+            border-radius: 40px / 20px;
+            position: relative;
+        }
+        .shape.cylinder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 80px;
+            height: 40px;
+            background: linear-gradient(135deg, #55efc4, #00b894);
+            border-radius: 50%;
+        }
+        .shape.cone {
+            width: 0;
+            height: 0;
+            border-left: 60px solid transparent;
+            border-right: 60px solid transparent;
+            border-bottom: 120px solid #e17055;
+            position: relative;
+        }
+        .shape.cone::after {
+            content: '';
+            position: absolute;
+            bottom: -130px;
+            left: -60px;
+            width: 120px;
+            height: 30px;
+            background: #d63031;
+            border-radius: 50%;
+        }
+        .shape.pentagon {
+            width: 120px;
+            height: 114px;
+            background: linear-gradient(135deg, #a29bfe, #6c5ce7);
+            clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+        }
+        .shape.hexagon {
+            width: 120px;
+            height: 104px;
+            background: linear-gradient(135deg, #fd79a8, #e84393);
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        }
+        .shape.oval {
+            width: 150px;
+            height: 90px;
+            background: linear-gradient(135deg, #81ecec, #00cec9);
+            border-radius: 50%;
+        }
+        .shape.diamond {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
+            transform: rotate(45deg);
+        }
+        /* Rewards Shop Styles */
+        .rewards-section {
+            margin-top: 30px;
+        }
+        .rewards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .reward-card {
+            background: linear-gradient(145deg, #1a1a2e, #0d1b2a);
+            border: 3px solid #555;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            clip-path: polygon(0 10px, 10px 0, calc(100% - 10px) 0, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px));
+        }
+        .reward-card:hover {
+            transform: translateY(-3px);
+            border-color: #00d4ff;
+        }
+        .reward-card.owned {
+            border-color: #33cc33;
+            opacity: 0.8;
+        }
+        .reward-card.owned::after {
+            content: '✓ OWNED';
+            display: block;
+            color: #33cc33;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8em;
+            margin-top: 10px;
+        }
+        .reward-card.active-reward {
+            border-color: #ffd700;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+        }
+        .reward-card.active-reward::after {
+            content: '★ ACTIVE';
+            display: block;
+            color: #ffd700;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8em;
+            margin-top: 10px;
+        }
+        .reward-icon {
+            font-size: 50px;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .reward-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1em;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+        .reward-desc {
+            font-size: 0.85em;
+            color: #888;
+            margin-bottom: 10px;
+        }
+        .reward-price {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1em;
+            color: #00d4ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        .reward-price .energon-icon { width: 14px; height: 14px; }
+        .shop-toggle {
+            background: linear-gradient(135deg, #ffd700, #ffaa00);
+            color: #000;
+            border: none;
+            padding: 12px 30px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1em;
+            cursor: pointer;
+            margin: 20px auto;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px), 0 10px);
+            transition: all 0.3s ease;
+        }
+        .shop-toggle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+        .shop-section {
+            display: none;
+            margin-top: 20px;
+        }
+        .shop-section.visible { display: block; }
+        .theme-preview {
+            width: 100%;
+            height: 60px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .theme-cyber { background: linear-gradient(90deg, #0a0a0a, #1a1a2e, #0d1b2a); }
+        .theme-rescue { background: linear-gradient(90deg, #ff3333, #ff8c00, #ffd700); }
+        .theme-nature { background: linear-gradient(90deg, #2ecc71, #27ae60, #1abc9c); }
+        .theme-space { background: linear-gradient(90deg, #2c3e50, #8e44ad, #3498db); }
+        .powerup-badge {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            background: linear-gradient(135deg, #1a1a2e, #0d1b2a);
+            border: 2px solid #ffd700;
+            padding: 8px 15px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9em;
+            color: #ffd700;
+            z-index: 100;
+            clip-path: polygon(8px 0, calc(100% - 8px) 0, 100% 8px, 100% calc(100% - 8px), calc(100% - 8px) 100%, 8px 100%, 0 calc(100% - 8px), 0 8px);
+            display: none;
+        }
+        .powerup-badge.visible { display: block; }
+        /* Color mixing display */
+        .color-mix-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px auto;
+        }
+        .color-mix-box {
+            width: 80px;
+            height: 80px;
+            border: 3px solid #fff;
+            clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px), 0 10px);
+        }
+        .color-mix-plus {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2em;
+            color: #ffd700;
+        }
+        .color-mix-equals {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2em;
+            color: #00d4ff;
+        }
+        .color-mix-result {
+            width: 80px;
+            height: 80px;
+            border: 3px solid #ffd700;
+            background: linear-gradient(45deg, #333 25%, transparent 25%, transparent 75%, #333 75%), linear-gradient(45deg, #333 25%, transparent 25%, transparent 75%, #333 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2em;
+            color: #ffd700;
+            clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px), 0 10px);
+        }
         @media (max-width: 768px) {
             h1 { font-size: 1.8em; }
             .subtitle { font-size: 1em; letter-spacing: 4px; }
@@ -869,6 +1179,7 @@
             .answer-btn, .counting-btn { width: 75px; height: 75px; font-size: 1.6em; }
             .letter-slot, .letter-btn { width: 55px; height: 60px; font-size: 1.4em; }
             .score-display { padding: 10px 15px; font-size: 1em; }
+            .grade-btn { min-width: 120px; padding: 12px 15px; font-size: 0.9em; }
         }
     </style>
 </head>
@@ -908,6 +1219,22 @@
             <h1>RESCUE BOTS</h1>
             <p class="subtitle">Academy</p>
             <p class="tagline">⚡ HI STEVEN! TRANSFORM AND ROLL OUT! ⚡</p>
+
+            <div class="grade-selector" id="gradeSelector">
+                <button class="grade-btn kindergarten active" onclick="selectGrade('kindergarten')">
+                    <span class="grade-stars">⭐</span>
+                    <span class="grade-label">Kindergarten</span>
+                </button>
+                <button class="grade-btn grade1" onclick="selectGrade('grade1')">
+                    <span class="grade-stars">⭐⭐</span>
+                    <span class="grade-label">1st Grade</span>
+                </button>
+                <button class="grade-btn grade2" onclick="selectGrade('grade2')">
+                    <span class="grade-stars">⭐⭐⭐</span>
+                    <span class="grade-label">2nd Grade</span>
+                </button>
+            </div>
+            <p class="current-grade-display">Current Level: <span id="currentGradeLabel">Kindergarten</span></p>
         </header>
 
         <p class="section-title">🤖 RESCUE BOTS TEAM 🤖</p>
@@ -947,8 +1274,8 @@
             <div class="menu-card bumblebee" id="bumblebeeCard" onclick="handleLockedClick('bumblebee')">
                 <div class="lock-overlay" id="bumblebeeLock">
                     <span class="lock-icon">🔒</span>
-                    <div class="lock-price"><span class="energon-icon"></span><span>100 ENERGON</span></div>
-                    <button class="unlock-btn" id="bumblebeeUnlockBtn" onclick="event.stopPropagation(); unlockBot('bumblebee', 100)">UNLOCK</button>
+                    <div class="lock-price"><span class="energon-icon"></span><span>500 ENERGON</span></div>
+                    <button class="unlock-btn" id="bumblebeeUnlockBtn" onclick="event.stopPropagation(); unlockBot('bumblebee', 500)">UNLOCK</button>
                 </div>
                 <span class="bot-icon" style="filter: hue-rotate(40deg) saturate(1.5) brightness(1.2);">🚗</span>
                 <p class="mission-type">Shapes Mission</p>
@@ -959,8 +1286,8 @@
             <div class="menu-card optimus" id="optimusCard" onclick="handleLockedClick('optimus')">
                 <div class="lock-overlay" id="optimusLock">
                     <span class="lock-icon">🔒</span>
-                    <div class="lock-price"><span class="energon-icon"></span><span>200 ENERGON</span></div>
-                    <button class="unlock-btn" id="optimusUnlockBtn" onclick="event.stopPropagation(); unlockBot('optimus', 200)">UNLOCK</button>
+                    <div class="lock-price"><span class="energon-icon"></span><span>1000 ENERGON</span></div>
+                    <button class="unlock-btn" id="optimusUnlockBtn" onclick="event.stopPropagation(); unlockBot('optimus', 1000)">UNLOCK</button>
                 </div>
                 <span class="bot-icon">🚛</span>
                 <p class="mission-type">Counting Mission</p>
@@ -968,6 +1295,36 @@
                 <p class="description">Leader counting challenge!</p>
                 <div class="status-ready">READY</div>
             </div>
+        </div>
+
+        <!-- Story Mode Section (unlockable) -->
+        <p class="section-title locked-section" id="storyTitle">📖 STORY MODE 📖</p>
+        <div class="main-menu" id="storyMenu">
+            <div class="menu-card chase" id="storyCard" onclick="handleLockedClick('storymode')">
+                <div class="lock-overlay" id="storymodeLock">
+                    <span class="lock-icon">🔒</span>
+                    <div class="lock-price"><span class="energon-icon"></span><span>750 ENERGON</span></div>
+                    <button class="unlock-btn" id="storymodeUnlockBtn" onclick="event.stopPropagation(); unlockBot('storymode', 750)">UNLOCK</button>
+                </div>
+                <span class="bot-icon">📚</span>
+                <p class="mission-type">Adventure Reading</p>
+                <h2 class="bot-color">RESCUE STORIES</h2>
+                <p class="description">Read exciting rescue adventures!</p>
+                <div class="status-ready">READY</div>
+            </div>
+        </div>
+
+        <!-- Rewards Shop Section -->
+        <button class="shop-toggle" id="shopToggle" onclick="toggleShop()">🎁 REWARDS SHOP 🎁</button>
+        <div class="shop-section" id="shopSection">
+            <p class="section-title">🏆 POWER-UPS 🏆</p>
+            <div class="rewards-grid" id="powerupsGrid"></div>
+
+            <p class="section-title">🎨 THEMES 🎨</p>
+            <div class="rewards-grid" id="themesGrid"></div>
+
+            <p class="section-title">🏅 BADGES 🏅</p>
+            <div class="rewards-grid" id="badgesGrid"></div>
         </div>
 
         <!-- Game Screens -->
@@ -1089,7 +1446,36 @@
             </div>
             <button class="next-btn" id="countingNext" onclick="nextCountingQuestion()">NEXT OBJECTIVE ►</button>
         </div>
+
+        <!-- Story Mode Screen -->
+        <div class="game-screen" id="storyScreen">
+            <button class="back-btn" onclick="goBack()">◄ ABORT MISSION</button>
+            <div class="game-header chase"><h2>📚 RESCUE BOTS STORY TIME 📚</h2></div>
+            <div class="progress-container">
+                <p class="progress-label">Story Progress</p>
+                <div class="progress-bar"><div class="progress-fill" id="storyProgress" style="width: 0%"></div></div>
+                <p class="progress-text">Chapter <span id="storyChapter">1</span> of <span id="storyTotalChapters">5</span></p>
+            </div>
+            <div class="bot-helper">
+                <span class="bot-avatar" id="storyBotAvatar">🤖</span>
+                <div class="bot-speech" id="storySpeech">Let's read a rescue adventure!</div>
+            </div>
+            <div class="reading-game">
+                <h3 id="storyTitle2" style="font-family: 'Orbitron', sans-serif; color: #ffd700; text-align: center; margin-bottom: 20px; font-size: 1.5em;"></h3>
+                <div class="story-text" id="storyFullText" style="font-size: 1.4em; line-height: 2;"></div>
+                <div id="storyQuestionSection" style="display: none;">
+                    <div class="reading-question">
+                        <p id="storyQuestion">STORY QUESTION:</p>
+                        <div class="reading-choices" id="storyChoices"></div>
+                    </div>
+                </div>
+                <button class="next-btn visible" id="storyContinue" onclick="continueStory()" style="display: block;">CONTINUE READING ►</button>
+            </div>
+            <button class="next-btn" id="storyNext" onclick="nextStoryChapter()">NEXT CHAPTER ►</button>
+        </div>
     </div>
+
+    <div class="powerup-badge" id="powerupBadge">⚡ 2X ENERGON ACTIVE</div>
 
     <div class="celebration" id="celebration">
         <div class="celebration-content">
@@ -1122,33 +1508,114 @@
         let totalScore = 0;
         let soundEnabled = true;
         let currentGame = '';
-        let unlockedBots = { bumblebee: false, optimus: false };
-        const botPrices = { bumblebee: 100, optimus: 200 };
+        let currentGrade = 'kindergarten'; // 'kindergarten', 'grade1', 'grade2'
+        let unlockedBots = { bumblebee: false, optimus: false, storymode: false };
+        const botPrices = { bumblebee: 500, optimus: 1000, storymode: 750 };
+
+        // Rewards system
+        let ownedRewards = { powerups: [], themes: ['cyber'], badges: [] };
+        let activeTheme = 'cyber';
+        let activePowerup = null;
+        let powerupEndTime = 0;
+
+        // Shop items
+        const shopItems = {
+            powerups: [
+                { id: 'double_energon', name: '2X Energon', icon: '⚡', desc: 'Double energon for 10 min', price: 250, duration: 600000 },
+                { id: 'hint_helper', name: 'Hint Helper', icon: '💡', desc: 'Get hints on hard questions', price: 400, duration: 600000 },
+                { id: 'extra_time', name: 'Extra Time', icon: '⏰', desc: 'More time on timed modes', price: 300, duration: 600000 }
+            ],
+            themes: [
+                { id: 'cyber', name: 'Cyber Base', icon: '🌃', desc: 'Default cyber theme', price: 0, colors: ['#0a0a0a', '#1a1a2e', '#0d1b2a'] },
+                { id: 'rescue', name: 'Rescue Red', icon: '🚒', desc: 'Hot rescue colors', price: 400, colors: ['#2a0a0a', '#3a1515', '#1a0505'] },
+                { id: 'nature', name: 'Nature Base', icon: '🌲', desc: 'Calm green theme', price: 400, colors: ['#0a2a0a', '#153a15', '#051a05'] },
+                { id: 'space', name: 'Space Station', icon: '🚀', desc: 'Deep space purple', price: 600, colors: ['#1a0a2a', '#251540', '#0f051a'] }
+            ],
+            badges: [
+                { id: 'math_master', name: 'Math Master', icon: '🧮', desc: 'Complete 10 math missions', price: 0, requirement: { type: 'missions', game: 'math', count: 10 } },
+                { id: 'spelling_star', name: 'Spelling Star', icon: '📝', desc: 'Complete 10 spelling missions', price: 0, requirement: { type: 'missions', game: 'spelling', count: 10 } },
+                { id: 'reading_pro', name: 'Reading Pro', icon: '📖', desc: 'Complete 10 reading missions', price: 0, requirement: { type: 'missions', game: 'reading', count: 10 } },
+                { id: 'energon_collector', name: 'Energon Collector', icon: '💎', desc: 'Collect 2000 total energon', price: 0, requirement: { type: 'score', count: 2000 } },
+                { id: 'super_hero', name: 'Super Hero', icon: '🦸', desc: 'Unlock all bots', price: 0, requirement: { type: 'unlockAll' } }
+            ]
+        };
+
+        // Mission completion tracking
+        let missionStats = { math: 0, spelling: 0, reading: 0, colors: 0, shapes: 0, counting: 0, story: 0 };
+        let totalEnergonEarned = 0;
+
+        // Story mode variables
+        let currentStoryData = null;
+        let currentStoryChapter = 0;
+        let currentStoryPart = 0;
+        let storyQuestionAnswered = false;
+
+        // Grade configuration
+        const gradeData = {
+            kindergarten: { label: 'Kindergarten', stars: 1, color: '#33cc33' },
+            grade1: { label: '1st Grade', stars: 2, color: '#ffd700' },
+            grade2: { label: '2nd Grade', stars: 3, color: '#ff6b6b' }
+        };
 
         // Game states
         let mathProblemCount = 0, currentMathProblem = null;
         let spellingWordCount = 0, currentWord = '', currentLetterIndex = 0;
         let readingStoryCount = 0, currentStory = null;
-        let colorsQuestionCount = 0, currentColor = null;
+        let colorsQuestionCount = 0, currentColor = null, currentColorMix = null;
         let shapesQuestionCount = 0, currentShape = null;
-        let countingQuestionCount = 0, currentCount = 0;
+        let countingQuestionCount = 0, currentCount = 0, currentCountType = 'normal';
 
-        const spellingWords = [
-            { word: 'CAT', image: '🐱' }, { word: 'DOG', image: '🐕' }, { word: 'SUN', image: '☀️' },
-            { word: 'BUS', image: '🚌' }, { word: 'HAT', image: '🎩' }, { word: 'CUP', image: '☕' },
-            { word: 'BED', image: '🛏️' }, { word: 'PIG', image: '🐷' }, { word: 'BEE', image: '🐝' },
-            { word: 'CAR', image: '🚗' }, { word: 'BOT', image: '🤖' }, { word: 'RED', image: '🔴' }
-        ];
+        // Spelling words by grade
+        const spellingWordsByGrade = {
+            kindergarten: [
+                { word: 'CAT', image: '🐱' }, { word: 'DOG', image: '🐕' }, { word: 'SUN', image: '☀️' },
+                { word: 'BUS', image: '🚌' }, { word: 'HAT', image: '🎩' }, { word: 'CUP', image: '☕' },
+                { word: 'BED', image: '🛏️' }, { word: 'PIG', image: '🐷' }, { word: 'BEE', image: '🐝' },
+                { word: 'CAR', image: '🚗' }, { word: 'BOT', image: '🤖' }, { word: 'RED', image: '🔴' }
+            ],
+            grade1: [
+                { word: 'FIRE', image: '🔥' }, { word: 'HELP', image: '🆘' }, { word: 'SAVE', image: '💪' },
+                { word: 'HERO', image: '🦸' }, { word: 'TEAM', image: '👥' }, { word: 'FAST', image: '💨' },
+                { word: 'SAFE', image: '🛡️' }, { word: 'JUMP', image: '🦘' }, { word: 'ROCK', image: '🪨' },
+                { word: 'TREE', image: '🌳' }, { word: 'BIRD', image: '🐦' }, { word: 'FISH', image: '🐟' }
+            ],
+            grade2: [
+                { word: 'RESCUE', image: '🚑' }, { word: 'DANGER', image: '⚠️' }, { word: 'SAFETY', image: '🦺' },
+                { word: 'FRIEND', image: '🤝' }, { word: 'BRAVE', image: '🦁' }, { word: 'HELPER', image: '🙋' },
+                { word: 'STRONG', image: '💪' }, { word: 'LEADER', image: '👑' }, { word: 'SHIELD', image: '🛡️' },
+                { word: 'FLYING', image: '🚁' }, { word: 'MIGHTY', image: '⚡' }, { word: 'HEROES', image: '🦸‍♂️' }
+            ]
+        };
 
-        const readingStories = [
-            { story: '<span class="highlight-word">Heatwave</span> is a red fire truck. He helps put out fires!', question: 'What color is Heatwave?', choices: ['Red', 'Blue', 'Green'], answer: 0 },
-            { story: '<span class="highlight-word">Blades</span> can fly in the sky. He is a helicopter!', question: 'What can Blades do?', choices: ['Swim', 'Fly', 'Dig'], answer: 1 },
-            { story: 'Chase is a <span class="highlight-word">police</span> car. He keeps everyone safe!', question: 'What kind of car is Chase?', choices: ['Fire truck', 'Police car', 'Taxi'], answer: 1 },
-            { story: 'Boulder is very <span class="highlight-word">strong</span>. He can lift heavy rocks!', question: 'What is Boulder?', choices: ['Weak', 'Small', 'Strong'], answer: 2 },
-            { story: 'The Rescue Bots work as a <span class="highlight-word">team</span>. Together they save the day!', question: 'How do the Rescue Bots work?', choices: ['Alone', 'As a team', 'They sleep'], answer: 1 },
-            { story: '<span class="highlight-word">Three</span> birds need help! The Rescue Bots fly to save them!', question: 'How many birds need help?', choices: ['One', 'Two', 'Three'], answer: 2 }
-        ];
+        // Reading stories by grade
+        const readingStoriesByGrade = {
+            kindergarten: [
+                { story: '<span class="highlight-word">Heatwave</span> is a red fire truck. He helps put out fires!', question: 'What color is Heatwave?', choices: ['Red', 'Blue', 'Green'], answer: 0 },
+                { story: '<span class="highlight-word">Blades</span> can fly in the sky. He is a helicopter!', question: 'What can Blades do?', choices: ['Swim', 'Fly', 'Dig'], answer: 1 },
+                { story: 'Chase is a <span class="highlight-word">police</span> car. He keeps everyone safe!', question: 'What kind of car is Chase?', choices: ['Fire truck', 'Police car', 'Taxi'], answer: 1 },
+                { story: 'Boulder is very <span class="highlight-word">strong</span>. He can lift heavy rocks!', question: 'What is Boulder?', choices: ['Weak', 'Small', 'Strong'], answer: 2 },
+                { story: 'The Rescue Bots work as a <span class="highlight-word">team</span>. Together they save the day!', question: 'How do the Rescue Bots work?', choices: ['Alone', 'As a team', 'They sleep'], answer: 1 },
+                { story: '<span class="highlight-word">Three</span> birds need help! The Rescue Bots fly to save them!', question: 'How many birds need help?', choices: ['One', 'Two', 'Three'], answer: 2 }
+            ],
+            grade1: [
+                { story: 'Heatwave drove fast to the <span class="highlight-word">burning</span> building. He sprayed water on the fire. The flames went out. Everyone was safe!', question: 'What did Heatwave spray on the fire?', choices: ['Sand', 'Water', 'Foam'], answer: 1 },
+                { story: 'Blades saw a cat stuck in a <span class="highlight-word">tall</span> tree. He flew up high and gently lifted the cat. The little girl was so happy to have her pet back!', question: 'Where was the cat stuck?', choices: ['On a roof', 'In a tree', 'In a cave'], answer: 1 },
+                { story: 'Chase heard a <span class="highlight-word">loud</span> alarm at the bank. He raced over and found someone had dropped their bag. Chase returned the bag to its owner!', question: 'What did Chase find at the bank?', choices: ['A dropped bag', 'A thief', 'A broken door'], answer: 0 },
+                { story: 'Boulder found huge <span class="highlight-word">rocks</span> blocking the road. Cars could not pass. He used his strong arms to move them. Now the road was clear!', question: 'Why could cars not pass?', choices: ['Too much rain', 'Rocks blocked the road', 'The bridge was broken'], answer: 1 },
+                { story: 'The team got a call about a <span class="highlight-word">boat</span> in trouble. Blades flew over the water. Heatwave drove to the dock. Together they saved the sailors!', question: 'What was in trouble?', choices: ['A plane', 'A boat', 'A train'], answer: 1 },
+                { story: 'It was a <span class="highlight-word">stormy</span> night on Griffin Rock. The power went out. The Rescue Bots helped people stay calm until the lights came back on.', question: 'What happened during the storm?', choices: ['A flood', 'The power went out', 'A fire started'], answer: 1 }
+            ],
+            grade2: [
+                { story: 'Heatwave noticed smoke coming from the old warehouse. Before rushing in, he <span class="highlight-word">checked</span> if anyone was inside. He heard a faint cry for help and carefully rescued a family who had been trapped. His patience saved their lives.', question: 'Why was Heatwave\'s patience important?', choices: ['He needed to rest', 'It helped him find the trapped family', 'The fire was too hot'], answer: 1 },
+                { story: 'Blades was nervous about flying in the heavy fog. Chase reminded him that his <span class="highlight-word">sensors</span> could help him see. Blades trusted his technology and successfully completed the rescue mission.', question: 'What does this story teach about facing fears?', choices: ['Avoid scary situations', 'Trust your abilities and tools', 'Wait for someone else to help'], answer: 1 },
+                { story: 'Boulder accidentally broke a <span class="highlight-word">statue</span> while clearing rubble. He felt terrible and immediately told Chief Burns what happened. The Chief appreciated his honesty and they worked together to fix it.', question: 'Why was telling the truth important?', choices: ['To avoid punishment', 'It showed responsibility and helped solve the problem', 'The Chief already knew'], answer: 1 },
+                { story: 'When a new bot arrived, some team members were <span class="highlight-word">unsure</span> about working with someone different. But they gave the new bot a chance and discovered amazing new skills that made the whole team stronger.', question: 'What is the main lesson of this story?', choices: ['New team members are always better', 'Being different can bring valuable new abilities', 'Old teams should stay the same'], answer: 1 },
+                { story: 'During a difficult rescue, Heatwave wanted to act alone, but the mission was too <span class="highlight-word">complex</span>. When he asked his teammates for help, they succeeded together. Even the strongest need support sometimes.', question: 'What did Heatwave learn?', choices: ['He should always work alone', 'Asking for help shows strength, not weakness', 'His teammates were better than him'], answer: 1 },
+                { story: 'Chase found a lost <span class="highlight-word">child</span> who spoke a different language. Even though they couldn\'t understand each other\'s words, Chase used kind gestures and a calm voice. The child felt safe and stopped crying.', question: 'How did Chase communicate without words?', choices: ['He used a translator machine', 'Through kindness, gestures, and a calm voice', 'He learned the new language quickly'], answer: 1 }
+            ]
+        };
 
+        // Colors (same for all grades, but grade 2 adds color mixing)
         const colors = [
             { name: 'Red', color: '#e74c3c' }, { name: 'Blue', color: '#3498db' },
             { name: 'Green', color: '#2ecc71' }, { name: 'Yellow', color: '#f1c40f' },
@@ -1156,16 +1623,190 @@
             { name: 'Pink', color: '#fd79a8' }, { name: 'Brown', color: '#795548' }
         ];
 
-        const shapes = [
-            { name: 'Circle', html: '<div class="shape circle"></div>' },
-            { name: 'Square', html: '<div class="shape square"></div>' },
-            { name: 'Triangle', html: '<div class="shape triangle"></div>' },
-            { name: 'Rectangle', html: '<div class="shape rectangle"></div>' },
-            { name: 'Star', html: '<div class="shape star">⭐</div>' },
-            { name: 'Heart', html: '<div class="shape heart">❤️</div>' }
+        // Color mixing questions for grade 2
+        const colorMixing = [
+            { color1: 'Red', hex1: '#e74c3c', color2: 'Blue', hex2: '#3498db', result: 'Purple', hexResult: '#9b59b6' },
+            { color1: 'Red', hex1: '#e74c3c', color2: 'Yellow', hex2: '#f1c40f', result: 'Orange', hexResult: '#e67e22' },
+            { color1: 'Blue', hex1: '#3498db', color2: 'Yellow', hex2: '#f1c40f', result: 'Green', hexResult: '#2ecc71' },
+            { color1: 'Red', hex1: '#e74c3c', color2: 'White', hex2: '#ffffff', result: 'Pink', hexResult: '#fd79a8' },
+            { color1: 'Black', hex1: '#2c3e50', color2: 'White', hex2: '#ffffff', result: 'Gray', hexResult: '#95a5a6' }
         ];
 
+        // Shapes by grade
+        const shapesByGrade = {
+            kindergarten: [
+                { name: 'Circle', html: '<div class="shape circle"></div>' },
+                { name: 'Square', html: '<div class="shape square"></div>' },
+                { name: 'Triangle', html: '<div class="shape triangle"></div>' },
+                { name: 'Rectangle', html: '<div class="shape rectangle"></div>' },
+                { name: 'Star', html: '<div class="shape star">⭐</div>' },
+                { name: 'Heart', html: '<div class="shape heart">❤️</div>' }
+            ],
+            grade1: [
+                { name: 'Circle', html: '<div class="shape circle"></div>' },
+                { name: 'Square', html: '<div class="shape square"></div>' },
+                { name: 'Triangle', html: '<div class="shape triangle"></div>' },
+                { name: 'Rectangle', html: '<div class="shape rectangle"></div>' },
+                { name: 'Star', html: '<div class="shape star">⭐</div>' },
+                { name: 'Heart', html: '<div class="shape heart">❤️</div>' },
+                { name: 'Pentagon', html: '<div class="shape pentagon"></div>' },
+                { name: 'Hexagon', html: '<div class="shape hexagon"></div>' },
+                { name: 'Oval', html: '<div class="shape oval"></div>' },
+                { name: 'Diamond', html: '<div class="shape diamond"></div>' }
+            ],
+            grade2: [
+                { name: 'Circle', html: '<div class="shape circle"></div>' },
+                { name: 'Square', html: '<div class="shape square"></div>' },
+                { name: 'Triangle', html: '<div class="shape triangle"></div>' },
+                { name: 'Rectangle', html: '<div class="shape rectangle"></div>' },
+                { name: 'Pentagon', html: '<div class="shape pentagon"></div>' },
+                { name: 'Hexagon', html: '<div class="shape hexagon"></div>' },
+                { name: 'Oval', html: '<div class="shape oval"></div>' },
+                { name: 'Diamond', html: '<div class="shape diamond"></div>' },
+                { name: 'Cube', html: '<div class="shape cube"><div class="cube-face front"></div><div class="cube-face back"></div><div class="cube-face left"></div><div class="cube-face right"></div><div class="cube-face top"></div><div class="cube-face bottom"></div></div>' },
+                { name: 'Sphere', html: '<div class="shape sphere"></div>' },
+                { name: 'Cylinder', html: '<div class="shape cylinder"></div>' },
+                { name: 'Cone', html: '<div class="shape cone"></div>' }
+            ]
+        };
+
         const countingItems = ['⭐', '🤖', '🚗', '🔵', '❤️', '🌟', '🎈', '🍎'];
+
+        // Full Story Mode Stories
+        const storyModeStories = [
+            {
+                title: "The Big Storm",
+                bot: "🚁",
+                botName: "BLADES",
+                chapters: [
+                    {
+                        text: "It was a dark and stormy night on Griffin Rock. The wind howled and rain poured down. Lightning flashed across the sky! Chief Burns got an emergency call - a family was trapped in their car on the flooded bridge!",
+                        question: null
+                    },
+                    {
+                        text: "'Rescue Bots, roll out!' called Chief Burns. Blades transformed into helicopter mode. He flew through the rain with Dani Burns inside. The storm was scary, but Blades was brave. He knew the family needed help!",
+                        question: { text: "What did Blades transform into?", choices: ["A car", "A helicopter", "A boat"], answer: 1 }
+                    },
+                    {
+                        text: "Blades found the car on the bridge. Water was rising fast! Dani lowered the rescue cable. One by one, Blades lifted each family member to safety - mom, dad, and two kids. They were so thankful!",
+                        question: { text: "How many kids were in the family?", choices: ["One", "Two", "Three"], answer: 1 }
+                    },
+                    {
+                        text: "Back at the firehouse, everyone was safe and dry. Chief Burns smiled at the team. 'Great work, Blades! You were very brave in that storm.' Blades felt proud. Helping others made all the danger worth it!",
+                        question: { text: "How did Blades feel at the end?", choices: ["Scared", "Proud", "Tired"], answer: 1 }
+                    }
+                ]
+            },
+            {
+                title: "Boulder Saves the Day",
+                bot: "🚜",
+                botName: "BOULDER",
+                chapters: [
+                    {
+                        text: "Boulder loved learning about Earth. Today, he was helping at the construction site with Graham Burns. They were building a new playground for the children of Griffin Rock!",
+                        question: null
+                    },
+                    {
+                        text: "Suddenly, the ground started shaking! 'Earthquake!' yelled Graham. A big crack appeared, and part of the playground equipment started falling into a hole. Boulder acted fast - he used his strong arms to catch the slide!",
+                        question: { text: "What natural disaster happened?", choices: ["Tornado", "Flood", "Earthquake"], answer: 2 }
+                    },
+                    {
+                        text: "Boulder held the equipment steady while Graham helped the workers get to safety. His arms were getting tired, but he didn't give up. 'Almost there,' he told himself. Being strong wasn't just about muscles - it was about not giving up!",
+                        question: { text: "What did Boulder learn about being strong?", choices: ["It's about muscles only", "It's about not giving up", "It's about being big"], answer: 1 }
+                    },
+                    {
+                        text: "After the earthquake stopped, everyone cheered for Boulder. The playground was saved! Graham patted Boulder's arm. 'You're not just strong, Boulder. You're also very brave and kind.' Boulder smiled his biggest smile!",
+                        question: { text: "Why did everyone cheer for Boulder?", choices: ["He finished building fast", "He saved the playground", "He found treasure"], answer: 1 }
+                    }
+                ]
+            },
+            {
+                title: "Chase and the Missing Pet",
+                bot: "🚔",
+                botName: "CHASE",
+                chapters: [
+                    {
+                        text: "Chase was the most careful and rule-following Rescue Bot. One day, a little girl named Emma came to the police station crying. Her puppy Biscuit had run away! Chief Burns asked Chase to help find him.",
+                        question: null
+                    },
+                    {
+                        text: "Chase used his police scanner to search for clues. He found tiny paw prints near the park! 'Evidence suggests the canine traveled this direction,' Chase reported. He followed the trail carefully, looking for more clues.",
+                        question: { text: "Where did Chase find paw prints?", choices: ["At the beach", "Near the park", "By the school"], answer: 1 }
+                    },
+                    {
+                        text: "The trail led to an old barn. Chase heard a small whimper coming from inside. There was Biscuit, stuck behind some hay bales! He was scared but okay. Chase gently moved the hay and picked up the little puppy.",
+                        question: { text: "Where was Biscuit hiding?", choices: ["In a tree", "Under a car", "Behind hay bales"], answer: 2 }
+                    },
+                    {
+                        text: "Emma was so happy when Chase brought Biscuit back! She gave the puppy a big hug. 'Thank you, Chase!' she said. Chase learned that being a good detective means paying attention to small details and never giving up!",
+                        question: { text: "What did Chase learn about being a detective?", choices: ["Run fast", "Pay attention to details", "Be loud"], answer: 1 }
+                    }
+                ]
+            },
+            {
+                title: "Heatwave's Hot Rescue",
+                bot: "🚒",
+                botName: "HEATWAVE",
+                chapters: [
+                    {
+                        text: "Heatwave was the leader of the Rescue Bots. He was brave and strong, but sometimes he tried to do everything himself. Today, there was a big fire at the Griffin Rock bakery! Smoke filled the sky.",
+                        question: null
+                    },
+                    {
+                        text: "Heatwave rushed to the scene. The fire was huge! He started spraying water, but it wasn't enough. 'I need help,' Heatwave realized. He called his team. 'Rescue Bots, I need backup!' It was hard to ask for help, but Heatwave knew it was the right thing to do.",
+                        question: { text: "What did Heatwave learn to do?", choices: ["Work alone", "Ask for help", "Give up"], answer: 1 }
+                    },
+                    {
+                        text: "Boulder, Blades, and Chase all came to help. Boulder cleared away burning debris. Blades flew water from the bay. Chase kept people safe. Together, they put out the fire! The baker and his cat were saved!",
+                        question: { text: "How did the team put out the fire?", choices: ["Heatwave did it alone", "They worked together", "They called the mayor"], answer: 1 }
+                    },
+                    {
+                        text: "After the fire was out, the baker thanked all the Rescue Bots. Heatwave looked at his team proudly. 'We're stronger together,' he said. 'I'm lucky to have such a great team.' The other bots cheered!",
+                        question: { text: "What did Heatwave learn about teamwork?", choices: ["It's not important", "They're stronger together", "One bot is enough"], answer: 1 }
+                    }
+                ]
+            },
+            {
+                title: "The Bumblebee Visit",
+                bot: "🚗",
+                botName: "BUMBLEBEE",
+                chapters: [
+                    {
+                        text: "One exciting day, Bumblebee came to visit Griffin Rock! The Rescue Bots were so happy to see their friend. Bumblebee had come from a far away place to teach them new rescue techniques.",
+                        question: null
+                    },
+                    {
+                        text: "Bumblebee showed the team how to work faster without making mistakes. 'Bzzz! Speed is good, but being careful is better!' he said. The Rescue Bots practiced the new moves over and over until they got them right.",
+                        question: { text: "What did Bumblebee teach about speed?", choices: ["Speed is everything", "Being careful is better", "Go as fast as possible"], answer: 1 }
+                    },
+                    {
+                        text: "That afternoon, there was a test! A ship was sinking in the harbor! The Rescue Bots used everything Bumblebee taught them. They moved fast AND carefully. They saved everyone on the ship!",
+                        question: { text: "What was sinking in the harbor?", choices: ["A plane", "A ship", "A car"], answer: 1 }
+                    },
+                    {
+                        text: "Bumblebee was so proud of the Rescue Bots. 'Bzzz! You learned so much!' Before he left, he gave each bot a special Autobot badge. 'You're all true heroes,' he said. The Rescue Bots would never forget this special visit!",
+                        question: { text: "What did Bumblebee give each bot?", choices: ["A toy", "A badge", "A book"], answer: 1 }
+                    }
+                ]
+            }
+        ];
+
+        // Grade selection function
+        function selectGrade(grade) {
+            playSound('click');
+            currentGrade = grade;
+
+            // Update button states
+            document.querySelectorAll('.grade-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`.grade-btn.${grade}`).classList.add('active');
+
+            // Update display label
+            document.getElementById('currentGradeLabel').textContent = gradeData[grade].label;
+            document.getElementById('currentGradeLabel').style.color = gradeData[grade].color;
+
+            // Save to localStorage
+            saveGameState();
+        }
 
         const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
@@ -1247,7 +1888,10 @@
         }
 
         function saveGameState() {
-            localStorage.setItem('rescueBotsGame', JSON.stringify({ totalScore, unlockedBots }));
+            localStorage.setItem('rescueBotsGame', JSON.stringify({
+                totalScore, unlockedBots, currentGrade, ownedRewards,
+                activeTheme, missionStats, totalEnergonEarned
+            }));
         }
 
         function loadGameState() {
@@ -1255,10 +1899,177 @@
             if (saved) {
                 const state = JSON.parse(saved);
                 totalScore = state.totalScore || 0;
-                unlockedBots = state.unlockedBots || { bumblebee: false, optimus: false };
+                unlockedBots = state.unlockedBots || { bumblebee: false, optimus: false, storymode: false };
+                currentGrade = state.currentGrade || 'kindergarten';
+                ownedRewards = state.ownedRewards || { powerups: [], themes: ['cyber'], badges: [] };
+                activeTheme = state.activeTheme || 'cyber';
+                missionStats = state.missionStats || { math: 0, spelling: 0, reading: 0, colors: 0, shapes: 0, counting: 0, story: 0 };
+                totalEnergonEarned = state.totalEnergonEarned || 0;
+
                 document.getElementById('totalScore').textContent = totalScore;
                 updateUnlockUI();
+                applyTheme(activeTheme);
+                renderShop();
+                checkBadges();
+
+                // Restore grade selection UI
+                document.querySelectorAll('.grade-btn').forEach(btn => btn.classList.remove('active'));
+                document.querySelector(`.grade-btn.${currentGrade}`).classList.add('active');
+                document.getElementById('currentGradeLabel').textContent = gradeData[currentGrade].label;
+                document.getElementById('currentGradeLabel').style.color = gradeData[currentGrade].color;
             }
+        }
+
+        // Shop functions
+        function toggleShop() {
+            playSound('click');
+            const shop = document.getElementById('shopSection');
+            shop.classList.toggle('visible');
+            renderShop();
+        }
+
+        function renderShop() {
+            // Render powerups
+            const powerupsGrid = document.getElementById('powerupsGrid');
+            powerupsGrid.innerHTML = '';
+            shopItems.powerups.forEach(item => {
+                const owned = ownedRewards.powerups.includes(item.id);
+                const card = document.createElement('div');
+                card.className = `reward-card ${owned ? 'owned' : ''}`;
+                card.innerHTML = `
+                    <span class="reward-icon">${item.icon}</span>
+                    <div class="reward-name">${item.name}</div>
+                    <div class="reward-desc">${item.desc}</div>
+                    ${!owned ? `<div class="reward-price"><span class="energon-icon"></span>${item.price}</div>` : ''}
+                `;
+                if (!owned) {
+                    card.onclick = () => buyReward('powerups', item);
+                } else {
+                    card.onclick = () => usePowerup(item);
+                }
+                powerupsGrid.appendChild(card);
+            });
+
+            // Render themes
+            const themesGrid = document.getElementById('themesGrid');
+            themesGrid.innerHTML = '';
+            shopItems.themes.forEach(item => {
+                const owned = ownedRewards.themes.includes(item.id);
+                const active = activeTheme === item.id;
+                const card = document.createElement('div');
+                card.className = `reward-card ${owned ? 'owned' : ''} ${active ? 'active-reward' : ''}`;
+                card.innerHTML = `
+                    <span class="reward-icon">${item.icon}</span>
+                    <div class="reward-name">${item.name}</div>
+                    <div class="reward-desc">${item.desc}</div>
+                    <div class="theme-preview" style="background: linear-gradient(90deg, ${item.colors.join(', ')});"></div>
+                    ${!owned && item.price > 0 ? `<div class="reward-price"><span class="energon-icon"></span>${item.price}</div>` : ''}
+                `;
+                if (!owned && item.price > 0) {
+                    card.onclick = () => buyReward('themes', item);
+                } else if (owned) {
+                    card.onclick = () => activateTheme(item.id);
+                }
+                themesGrid.appendChild(card);
+            });
+
+            // Render badges
+            const badgesGrid = document.getElementById('badgesGrid');
+            badgesGrid.innerHTML = '';
+            shopItems.badges.forEach(item => {
+                const earned = ownedRewards.badges.includes(item.id);
+                const card = document.createElement('div');
+                card.className = `reward-card ${earned ? 'owned' : ''}`;
+                card.style.opacity = earned ? '1' : '0.5';
+                card.innerHTML = `
+                    <span class="reward-icon">${item.icon}</span>
+                    <div class="reward-name">${item.name}</div>
+                    <div class="reward-desc">${item.desc}</div>
+                `;
+                badgesGrid.appendChild(card);
+            });
+        }
+
+        function buyReward(type, item) {
+            if (totalScore < item.price) {
+                playSound('wrong');
+                return;
+            }
+
+            playSound('unlock');
+            totalScore -= item.price;
+            ownedRewards[type].push(item.id);
+            document.getElementById('totalScore').textContent = totalScore;
+            saveGameState();
+            renderShop();
+
+            // Show unlock animation
+            const unlockAnim = document.getElementById('unlockAnimation');
+            document.getElementById('unlockBotIcon').textContent = item.icon;
+            document.getElementById('unlockBotIcon').style.filter = 'none';
+            document.getElementById('unlockBotName').textContent = item.name.toUpperCase();
+            unlockAnim.classList.add('active');
+            setTimeout(() => unlockAnim.classList.remove('active'), 2500);
+        }
+
+        function usePowerup(item) {
+            playSound('correct');
+            activePowerup = item.id;
+            powerupEndTime = Date.now() + item.duration;
+
+            const badge = document.getElementById('powerupBadge');
+            badge.textContent = `⚡ ${item.name.toUpperCase()} ACTIVE`;
+            badge.classList.add('visible');
+
+            setTimeout(() => {
+                activePowerup = null;
+                badge.classList.remove('visible');
+            }, item.duration);
+        }
+
+        function activateTheme(themeId) {
+            playSound('click');
+            activeTheme = themeId;
+            applyTheme(themeId);
+            saveGameState();
+            renderShop();
+        }
+
+        function applyTheme(themeId) {
+            const theme = shopItems.themes.find(t => t.id === themeId);
+            if (theme) {
+                document.body.style.background = `linear-gradient(180deg, ${theme.colors[0]} 0%, ${theme.colors[1]} 50%, ${theme.colors[2]} 100%)`;
+            }
+        }
+
+        function checkBadges() {
+            shopItems.badges.forEach(badge => {
+                if (ownedRewards.badges.includes(badge.id)) return;
+
+                let earned = false;
+                if (badge.requirement.type === 'missions') {
+                    earned = missionStats[badge.requirement.game] >= badge.requirement.count;
+                } else if (badge.requirement.type === 'score') {
+                    earned = totalEnergonEarned >= badge.requirement.count;
+                } else if (badge.requirement.type === 'unlockAll') {
+                    earned = unlockedBots.bumblebee && unlockedBots.optimus && unlockedBots.storymode;
+                }
+
+                if (earned) {
+                    ownedRewards.badges.push(badge.id);
+                    saveGameState();
+
+                    // Show badge earned animation
+                    setTimeout(() => {
+                        const unlockAnim = document.getElementById('unlockAnimation');
+                        document.getElementById('unlockBotIcon').textContent = badge.icon;
+                        document.getElementById('unlockBotIcon').style.filter = 'none';
+                        document.getElementById('unlockBotName').textContent = 'BADGE EARNED: ' + badge.name.toUpperCase();
+                        unlockAnim.classList.add('active');
+                        setTimeout(() => unlockAnim.classList.remove('active'), 2500);
+                    }, 1000);
+                }
+            });
         }
 
         function updateUnlockUI() {
@@ -1278,6 +2089,16 @@
                 document.getElementById('lockedTitle').textContent = '⭐ LEGENDARY AUTOBOTS ⭐';
                 document.getElementById('lockedTitle').classList.remove('locked-section');
             }
+
+            // Story mode unlock
+            if (unlockedBots.storymode) {
+                document.getElementById('storymodeLock').style.display = 'none';
+                document.getElementById('storyCard').classList.remove('locked');
+                document.getElementById('storyTitle').textContent = '📖 STORY MODE 📖';
+                document.getElementById('storyTitle').classList.remove('locked-section');
+            } else {
+                document.getElementById('storymodeUnlockBtn').disabled = totalScore < botPrices.storymode;
+            }
         }
 
         function showShopHint() {
@@ -1289,6 +2110,7 @@
             if (unlockedBots[bot]) {
                 if (bot === 'bumblebee') startGame('shapes');
                 else if (bot === 'optimus') startGame('counting');
+                else if (bot === 'storymode') startStoryMode();
             }
         }
 
@@ -1300,15 +2122,30 @@
                 saveGameState();
 
                 const unlockAnim = document.getElementById('unlockAnimation');
-                document.getElementById('unlockBotIcon').textContent = bot === 'bumblebee' ? '🚗' : '🚛';
-                document.getElementById('unlockBotIcon').style.filter = bot === 'bumblebee' ? 'hue-rotate(40deg) saturate(1.5) brightness(1.2)' : 'none';
-                document.getElementById('unlockBotName').textContent = bot === 'bumblebee' ? 'BUMBLEBEE' : 'OPTIMUS PRIME';
+                let icon, name, filter = 'none';
+
+                if (bot === 'bumblebee') {
+                    icon = '🚗';
+                    name = 'BUMBLEBEE';
+                    filter = 'hue-rotate(40deg) saturate(1.5) brightness(1.2)';
+                } else if (bot === 'optimus') {
+                    icon = '🚛';
+                    name = 'OPTIMUS PRIME';
+                } else if (bot === 'storymode') {
+                    icon = '📚';
+                    name = 'STORY MODE';
+                }
+
+                document.getElementById('unlockBotIcon').textContent = icon;
+                document.getElementById('unlockBotIcon').style.filter = filter;
+                document.getElementById('unlockBotName').textContent = name;
 
                 playSound('unlock');
                 unlockAnim.classList.add('active');
                 setTimeout(() => {
                     unlockAnim.classList.remove('active');
                     updateUnlockUI();
+                    checkBadges();
                 }, 3000);
             }
         }
@@ -1391,6 +2228,10 @@
                 document.getElementById('mainMenu').style.display = 'none';
                 document.getElementById('lockedMenu').style.display = 'none';
                 document.getElementById('lockedTitle').style.display = 'none';
+                document.getElementById('storyTitle').style.display = 'none';
+                document.getElementById('storyMenu').style.display = 'none';
+                document.getElementById('shopToggle').style.display = 'none';
+                document.getElementById('shopSection').classList.remove('visible');
                 document.querySelector('.section-title:not(.locked-section)').style.display = 'none';
 
                 const screens = { math: 'mathScreen', spelling: 'spellingScreen', reading: 'readingScreen', colors: 'colorsScreen', shapes: 'shapesScreen', counting: 'countingScreen' };
@@ -1407,22 +2248,38 @@
             document.getElementById('mainMenu').style.display = 'grid';
             document.getElementById('lockedMenu').style.display = 'grid';
             document.getElementById('lockedTitle').style.display = 'block';
+            document.getElementById('storyTitle').style.display = 'block';
+            document.getElementById('storyMenu').style.display = 'grid';
+            document.getElementById('shopToggle').style.display = 'block';
             document.querySelector('.section-title:not(.locked-section)').style.display = 'block';
         }
 
         function updateScore(points) {
-            totalScore += points;
+            // Apply double energon powerup if active
+            const actualPoints = activePowerup === 'double_energon' ? points * 2 : points;
+            totalScore += actualPoints;
+            totalEnergonEarned += actualPoints;
             document.getElementById('totalScore').textContent = totalScore;
             updateUnlockUI();
+            checkBadges();
             saveGameState();
         }
 
         function showCelebration(bot, message, botName, energonReward) {
             playSound('celebrate');
+
+            // Track mission completion
+            if (currentGame && missionStats.hasOwnProperty(currentGame)) {
+                missionStats[currentGame]++;
+            }
+
             const celebration = document.getElementById('celebration');
             document.getElementById('celebrationBot').textContent = bot;
             document.getElementById('celebrationMessage').textContent = `${botName} says: ${message}`;
-            document.getElementById('energonEarned').textContent = `+${energonReward} ENERGON!`;
+
+            // Show double if powerup active
+            const displayReward = activePowerup === 'double_energon' ? energonReward * 2 : energonReward;
+            document.getElementById('energonEarned').textContent = `+${displayReward} ENERGON!${activePowerup === 'double_energon' ? ' (2X BONUS!)' : ''}`;
             celebration.classList.add('active');
             updateScore(energonReward);
 
@@ -1446,18 +2303,76 @@
 
         // Math Game
         function generateMathProblem() {
-            const num1 = Math.floor(Math.random() * 5) + 1;
-            const num2 = Math.floor(Math.random() * 5) + 1;
-            currentMathProblem = { num1, num2, answer: num1 + num2 };
-            document.getElementById('mathProblem').textContent = `${num1} + ${num2} = ?`;
+            let num1, num2, answer, problemText, operation;
+
+            if (currentGrade === 'kindergarten') {
+                // Addition 1-5 + 1-5 (max sum: 10)
+                num1 = Math.floor(Math.random() * 5) + 1;
+                num2 = Math.floor(Math.random() * 5) + 1;
+                answer = num1 + num2;
+                problemText = `${num1} + ${num2} = ?`;
+                operation = 'add';
+            } else if (currentGrade === 'grade1') {
+                // Addition 1-10 + 1-10, or subtraction
+                const useSubtraction = Math.random() < 0.4;
+                if (useSubtraction) {
+                    num1 = Math.floor(Math.random() * 15) + 5; // 5-19
+                    num2 = Math.floor(Math.random() * Math.min(num1, 10)) + 1; // ensure positive result
+                    answer = num1 - num2;
+                    problemText = `${num1} - ${num2} = ?`;
+                    operation = 'subtract';
+                } else {
+                    num1 = Math.floor(Math.random() * 10) + 1;
+                    num2 = Math.floor(Math.random() * 10) + 1;
+                    answer = num1 + num2;
+                    problemText = `${num1} + ${num2} = ?`;
+                    operation = 'add';
+                }
+            } else { // grade2
+                // Addition/subtraction to 20, simple multiplication (2x, 5x, 10x)
+                const problemType = Math.random();
+                if (problemType < 0.35) {
+                    // Addition
+                    num1 = Math.floor(Math.random() * 15) + 1;
+                    num2 = Math.floor(Math.random() * (20 - num1)) + 1;
+                    answer = num1 + num2;
+                    problemText = `${num1} + ${num2} = ?`;
+                    operation = 'add';
+                } else if (problemType < 0.65) {
+                    // Subtraction
+                    num1 = Math.floor(Math.random() * 15) + 5;
+                    num2 = Math.floor(Math.random() * Math.min(num1, 15)) + 1;
+                    answer = num1 - num2;
+                    problemText = `${num1} - ${num2} = ?`;
+                    operation = 'subtract';
+                } else {
+                    // Multiplication (2x, 5x, or 10x tables)
+                    const multipliers = [2, 5, 10];
+                    num1 = multipliers[Math.floor(Math.random() * multipliers.length)];
+                    num2 = Math.floor(Math.random() * 10) + 1;
+                    answer = num1 * num2;
+                    problemText = `${num1} × ${num2} = ?`;
+                    operation = 'multiply';
+                }
+            }
+
+            currentMathProblem = { num1, num2, answer, operation };
+            document.getElementById('mathProblem').textContent = problemText;
             document.getElementById('mathProgress').style.width = (mathProblemCount / 5 * 100) + '%';
             document.getElementById('mathCount').textContent = mathProblemCount;
             document.getElementById('mathNext').classList.remove('visible');
 
-            let choices = [currentMathProblem.answer];
+            // Generate wrong answers based on the operation
+            let choices = [answer];
+            const maxWrong = currentGrade === 'kindergarten' ? 15 : (currentGrade === 'grade1' ? 25 : 100);
             while (choices.length < 4) {
-                const wrong = Math.floor(Math.random() * 10) + 1;
-                if (!choices.includes(wrong)) choices.push(wrong);
+                let wrong;
+                if (operation === 'multiply') {
+                    wrong = Math.floor(Math.random() * 50) + 1;
+                } else {
+                    wrong = Math.floor(Math.random() * maxWrong) + 1;
+                }
+                if (!choices.includes(wrong) && wrong !== answer) choices.push(wrong);
             }
             choices.sort(() => Math.random() - 0.5);
 
@@ -1470,7 +2385,13 @@
                 btn.onclick = () => checkMathAnswer(btn, choice);
                 answersDiv.appendChild(btn);
             });
-            document.getElementById('mathSpeech').textContent = `Steven! Emergency! Calculate ${num1} + ${num2} to rescue!`;
+
+            const speechMessages = {
+                add: `Steven! Emergency! Calculate ${num1} + ${num2} to rescue!`,
+                subtract: `Steven! Quick thinking! What is ${num1} - ${num2}?`,
+                multiply: `Steven! Power calculation! What is ${num1} × ${num2}?`
+            };
+            document.getElementById('mathSpeech').textContent = speechMessages[operation];
         }
 
         function checkMathAnswer(btn, choice) {
@@ -1498,7 +2419,8 @@
 
         // Spelling Game
         function generateSpellingWord() {
-            const wordData = spellingWords[Math.floor(Math.random() * spellingWords.length)];
+            const wordList = spellingWordsByGrade[currentGrade];
+            const wordData = wordList[Math.floor(Math.random() * wordList.length)];
             currentWord = wordData.word;
             currentLetterIndex = 0;
             document.getElementById('wordImage').textContent = wordData.image;
@@ -1517,7 +2439,9 @@
 
             let letters = currentWord.split('');
             const extraLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-            while (letters.length < 6) {
+            // More letters for harder words
+            const targetLetterCount = currentGrade === 'kindergarten' ? 6 : (currentGrade === 'grade1' ? 8 : 10);
+            while (letters.length < targetLetterCount) {
                 const randomLetter = extraLetters[Math.floor(Math.random() * extraLetters.length)];
                 if (!letters.includes(randomLetter)) letters.push(randomLetter);
             }
@@ -1533,7 +2457,13 @@
                 btn.onclick = () => selectLetter(btn, letter);
                 choicesDiv.appendChild(btn);
             });
-            document.getElementById('spellingSpeech').textContent = "Steven! Target acquired! Spell the word to proceed!";
+
+            const gradeMessages = {
+                kindergarten: "Steven! Target acquired! Spell the word to proceed!",
+                grade1: "Steven! Aerial scan complete! Spell this rescue word!",
+                grade2: "Steven! Advanced mission! Spell this challenging word!"
+            };
+            document.getElementById('spellingSpeech').textContent = gradeMessages[currentGrade];
         }
 
         function selectLetter(btn, letter) {
@@ -1566,7 +2496,8 @@
 
         // Reading Game
         function generateReadingStory() {
-            currentStory = readingStories[Math.floor(Math.random() * readingStories.length)];
+            const storyList = readingStoriesByGrade[currentGrade];
+            currentStory = storyList[Math.floor(Math.random() * storyList.length)];
             document.getElementById('storyText').innerHTML = currentStory.story;
             document.getElementById('readingQuestion').textContent = currentStory.question;
             document.getElementById('readingProgress').style.width = (readingStoryCount / 5 * 100) + '%';
@@ -1582,7 +2513,13 @@
                 btn.onclick = () => checkReadingAnswer(btn, index);
                 choicesDiv.appendChild(btn);
             });
-            document.getElementById('readingSpeech').textContent = "Steven! Incoming report! Analyze and respond!";
+
+            const gradeMessages = {
+                kindergarten: "Steven! Incoming report! Analyze and respond!",
+                grade1: "Steven! Read the full report and solve the case!",
+                grade2: "Steven! This case requires careful analysis. Think about what the story means!"
+            };
+            document.getElementById('readingSpeech').textContent = gradeMessages[currentGrade];
         }
 
         function checkReadingAnswer(btn, index) {
@@ -1609,29 +2546,74 @@
 
         // Colors Game
         function generateColorQuestion() {
-            currentColor = colors[Math.floor(Math.random() * colors.length)];
-            document.getElementById('colorDisplay').style.background = currentColor.color;
+            currentColorMix = null;
+
+            // Grade 2 has a chance for color mixing questions
+            if (currentGrade === 'grade2' && Math.random() < 0.5) {
+                // Color mixing question
+                currentColorMix = colorMixing[Math.floor(Math.random() * colorMixing.length)];
+                currentColor = { name: currentColorMix.result, color: currentColorMix.hexResult };
+
+                // Create color mixing display
+                const displayDiv = document.getElementById('colorDisplay');
+                displayDiv.style.background = 'transparent';
+                displayDiv.innerHTML = `
+                    <div class="color-mix-display">
+                        <div class="color-mix-box" style="background: ${currentColorMix.hex1};"></div>
+                        <span class="color-mix-plus">+</span>
+                        <div class="color-mix-box" style="background: ${currentColorMix.hex2};"></div>
+                        <span class="color-mix-equals">=</span>
+                        <div class="color-mix-result">?</div>
+                    </div>
+                `;
+
+                let choices = [currentColorMix.result];
+                const allColorNames = colors.map(c => c.name).concat(['Gray']);
+                while (choices.length < 4) {
+                    const randomColor = allColorNames[Math.floor(Math.random() * allColorNames.length)];
+                    if (!choices.includes(randomColor)) choices.push(randomColor);
+                }
+                choices.sort(() => Math.random() - 0.5);
+
+                const choicesDiv = document.getElementById('colorChoices');
+                choicesDiv.innerHTML = '';
+                choices.forEach(choice => {
+                    const btn = document.createElement('button');
+                    btn.className = 'color-btn';
+                    btn.textContent = choice;
+                    btn.onclick = () => checkColorAnswer(btn, choice);
+                    choicesDiv.appendChild(btn);
+                });
+                document.getElementById('colorsSpeech').textContent = `Steven! Color science! What color do ${currentColorMix.color1} and ${currentColorMix.color2} make?`;
+            } else {
+                // Regular color identification
+                currentColor = colors[Math.floor(Math.random() * colors.length)];
+                const displayDiv = document.getElementById('colorDisplay');
+                displayDiv.innerHTML = '';
+                displayDiv.style.background = currentColor.color;
+
+                let choices = [currentColor.name];
+                while (choices.length < 4) {
+                    const randomColor = colors[Math.floor(Math.random() * colors.length)].name;
+                    if (!choices.includes(randomColor)) choices.push(randomColor);
+                }
+                choices.sort(() => Math.random() - 0.5);
+
+                const choicesDiv = document.getElementById('colorChoices');
+                choicesDiv.innerHTML = '';
+                choices.forEach(choice => {
+                    const btn = document.createElement('button');
+                    btn.className = 'color-btn';
+                    btn.textContent = choice;
+                    btn.onclick = () => checkColorAnswer(btn, choice);
+                    choicesDiv.appendChild(btn);
+                });
+                document.getElementById('colorsSpeech').textContent = "Steven! Construction site scan! Identify this color!";
+            }
+
             document.getElementById('colorsProgress').style.width = (colorsQuestionCount / 5 * 100) + '%';
             document.getElementById('colorsCount').textContent = colorsQuestionCount;
             document.getElementById('colorsNext').classList.remove('visible');
-
-            let choices = [currentColor.name];
-            while (choices.length < 4) {
-                const randomColor = colors[Math.floor(Math.random() * colors.length)].name;
-                if (!choices.includes(randomColor)) choices.push(randomColor);
-            }
-            choices.sort(() => Math.random() - 0.5);
-
-            const choicesDiv = document.getElementById('colorChoices');
-            choicesDiv.innerHTML = '';
-            choices.forEach(choice => {
-                const btn = document.createElement('button');
-                btn.className = 'color-btn';
-                btn.textContent = choice;
-                btn.onclick = () => checkColorAnswer(btn, choice);
-                choicesDiv.appendChild(btn);
-            });
-            document.getElementById('colorsSpeech').textContent = "Steven! Construction site scan! Identify this color!";
         }
 
         function checkColorAnswer(btn, choice) {
@@ -1658,7 +2640,8 @@
 
         // Shapes Game (Bumblebee)
         function generateShapeQuestion() {
-            currentShape = shapes[Math.floor(Math.random() * shapes.length)];
+            const shapeList = shapesByGrade[currentGrade];
+            currentShape = shapeList[Math.floor(Math.random() * shapeList.length)];
             document.getElementById('shapeDisplay').innerHTML = currentShape.html;
             document.getElementById('shapesProgress').style.width = (shapesQuestionCount / 5 * 100) + '%';
             document.getElementById('shapesCount').textContent = shapesQuestionCount;
@@ -1666,7 +2649,7 @@
 
             let choices = [currentShape.name];
             while (choices.length < 4) {
-                const randomShape = shapes[Math.floor(Math.random() * shapes.length)].name;
+                const randomShape = shapeList[Math.floor(Math.random() * shapeList.length)].name;
                 if (!choices.includes(randomShape)) choices.push(randomShape);
             }
             choices.sort(() => Math.random() - 0.5);
@@ -1680,7 +2663,14 @@
                 btn.onclick = () => checkShapeAnswer(btn, choice);
                 choicesDiv.appendChild(btn);
             });
-            document.getElementById('shapesSpeech').textContent = "Bzzz! Steven, what shape is this?";
+
+            const is3D = ['Cube', 'Sphere', 'Cylinder', 'Cone'].includes(currentShape.name);
+            const gradeMessages = {
+                kindergarten: "Bzzz! Steven, what shape is this?",
+                grade1: "Bzzz! Shape scout mission! Can you identify this shape?",
+                grade2: is3D ? "Bzzz! 3D shape detected! What is this solid shape called?" : "Bzzz! Advanced shape recognition! What shape is this?"
+            };
+            document.getElementById('shapesSpeech').textContent = gradeMessages[currentGrade];
         }
 
         function checkShapeAnswer(btn, choice) {
@@ -1707,39 +2697,101 @@
 
         // Counting Game (Optimus Prime)
         function generateCountingQuestion() {
-            currentCount = Math.floor(Math.random() * 8) + 1;
             const item = countingItems[Math.floor(Math.random() * countingItems.length)];
             const displayDiv = document.getElementById('countingDisplay');
             displayDiv.innerHTML = '';
-            for (let i = 0; i < currentCount; i++) {
-                const itemSpan = document.createElement('span');
-                itemSpan.className = 'counting-item';
-                itemSpan.textContent = item;
-                itemSpan.style.animationDelay = (i * 0.1) + 's';
-                displayDiv.appendChild(itemSpan);
+            currentCountType = 'normal';
+
+            // Grade 2 can have skip counting
+            if (currentGrade === 'grade2' && Math.random() < 0.4) {
+                // Skip counting question
+                const skipTypes = [2, 5, 10];
+                const skipBy = skipTypes[Math.floor(Math.random() * skipTypes.length)];
+                const startNum = skipBy === 10 ? 10 : (skipBy === 5 ? 5 : 2);
+                const numItems = Math.floor(Math.random() * 4) + 3; // 3-6 items
+                currentCount = startNum + (numItems - 1) * skipBy; // Answer is the last number
+
+                currentCountType = 'skip';
+
+                // Show the sequence with the last one as ?
+                let sequenceHtml = '';
+                for (let i = 0; i < numItems; i++) {
+                    const num = startNum + i * skipBy;
+                    if (i === numItems - 1) {
+                        sequenceHtml += `<span class="counting-item" style="font-size: 40px; animation-delay: ${i * 0.1}s">?</span>`;
+                    } else {
+                        sequenceHtml += `<span class="counting-item" style="font-size: 40px; animation-delay: ${i * 0.1}s">${num}</span>`;
+                    }
+                }
+                displayDiv.innerHTML = sequenceHtml;
+                document.getElementById('countingQuestion').textContent = `Skip counting by ${skipBy}s! What comes next?`;
+                document.getElementById('countingSpeech').textContent = `Steven! Pattern detected! Count by ${skipBy}s to find the next number!`;
+
+                let choices = [currentCount];
+                while (choices.length < 4) {
+                    const wrong = currentCount + (Math.floor(Math.random() * 5) - 2) * skipBy;
+                    if (!choices.includes(wrong) && wrong > 0 && wrong !== currentCount) choices.push(wrong);
+                }
+                // Ensure we have 4 choices
+                while (choices.length < 4) {
+                    const wrong = Math.floor(Math.random() * 50) + 10;
+                    if (!choices.includes(wrong)) choices.push(wrong);
+                }
+                choices.sort(() => Math.random() - 0.5);
+
+                const choicesDiv = document.getElementById('countingChoices');
+                choicesDiv.innerHTML = '';
+                choices.forEach(choice => {
+                    const btn = document.createElement('button');
+                    btn.className = 'counting-btn';
+                    btn.textContent = choice;
+                    btn.onclick = () => checkCountingAnswer(btn, choice);
+                    choicesDiv.appendChild(btn);
+                });
+            } else {
+                // Regular counting
+                let maxCount;
+                if (currentGrade === 'kindergarten') {
+                    maxCount = 8;
+                } else if (currentGrade === 'grade1') {
+                    maxCount = 15;
+                } else {
+                    maxCount = 20;
+                }
+                currentCount = Math.floor(Math.random() * maxCount) + 1;
+
+                for (let i = 0; i < currentCount; i++) {
+                    const itemSpan = document.createElement('span');
+                    itemSpan.className = 'counting-item';
+                    itemSpan.textContent = item;
+                    itemSpan.style.animationDelay = (i * 0.1) + 's';
+                    displayDiv.appendChild(itemSpan);
+                }
+                document.getElementById('countingQuestion').textContent = `How many ${item} do you see?`;
+
+                let choices = [currentCount];
+                const wrongRange = currentGrade === 'kindergarten' ? 10 : (currentGrade === 'grade1' ? 18 : 25);
+                while (choices.length < 4) {
+                    const wrong = Math.floor(Math.random() * wrongRange) + 1;
+                    if (!choices.includes(wrong)) choices.push(wrong);
+                }
+                choices.sort(() => Math.random() - 0.5);
+
+                const choicesDiv = document.getElementById('countingChoices');
+                choicesDiv.innerHTML = '';
+                choices.forEach(choice => {
+                    const btn = document.createElement('button');
+                    btn.className = 'counting-btn';
+                    btn.textContent = choice;
+                    btn.onclick = () => checkCountingAnswer(btn, choice);
+                    choicesDiv.appendChild(btn);
+                });
+                document.getElementById('countingSpeech').textContent = "Steven! Autobots, count with me! How many do you see?";
             }
-            document.getElementById('countingQuestion').textContent = `How many ${item} do you see?`;
+
             document.getElementById('countingProgress').style.width = (countingQuestionCount / 5 * 100) + '%';
             document.getElementById('countingCount').textContent = countingQuestionCount;
             document.getElementById('countingNext').classList.remove('visible');
-
-            let choices = [currentCount];
-            while (choices.length < 4) {
-                const wrong = Math.floor(Math.random() * 10) + 1;
-                if (!choices.includes(wrong)) choices.push(wrong);
-            }
-            choices.sort(() => Math.random() - 0.5);
-
-            const choicesDiv = document.getElementById('countingChoices');
-            choicesDiv.innerHTML = '';
-            choices.forEach(choice => {
-                const btn = document.createElement('button');
-                btn.className = 'counting-btn';
-                btn.textContent = choice;
-                btn.onclick = () => checkCountingAnswer(btn, choice);
-                choicesDiv.appendChild(btn);
-            });
-            document.getElementById('countingSpeech').textContent = "Steven! Autobots, count with me! How many do you see?";
         }
 
         function checkCountingAnswer(btn, choice) {
@@ -1764,9 +2816,128 @@
 
         function nextCountingQuestion() { playSound('click'); generateCountingQuestion(); }
 
+        // Story Mode Functions
+        function startStoryMode() {
+            playSound('click');
+            currentGame = 'story';
+
+            // Pick a random story
+            currentStoryData = storyModeStories[Math.floor(Math.random() * storyModeStories.length)];
+            currentStoryChapter = 0;
+            currentStoryPart = 0;
+            storyQuestionAnswered = false;
+
+            showTransformAnimation('reading', () => {
+                document.getElementById('mainMenu').style.display = 'none';
+                document.getElementById('lockedMenu').style.display = 'none';
+                document.getElementById('lockedTitle').style.display = 'none';
+                document.getElementById('storyTitle').style.display = 'none';
+                document.getElementById('storyMenu').style.display = 'none';
+                document.querySelector('.section-title:not(.locked-section)').style.display = 'none';
+                document.getElementById('shopToggle').style.display = 'none';
+                document.getElementById('shopSection').classList.remove('visible');
+
+                document.getElementById('storyScreen').classList.add('active');
+                document.getElementById('storyTotalChapters').textContent = currentStoryData.chapters.length;
+                document.getElementById('storyTitle2').textContent = currentStoryData.title;
+                document.getElementById('storyBotAvatar').textContent = currentStoryData.bot;
+
+                loadStoryChapter();
+            });
+        }
+
+        function loadStoryChapter() {
+            const chapter = currentStoryData.chapters[currentStoryChapter];
+            document.getElementById('storyChapter').textContent = currentStoryChapter + 1;
+            document.getElementById('storyProgress').style.width = ((currentStoryChapter + 1) / currentStoryData.chapters.length * 100) + '%';
+            document.getElementById('storyFullText').innerHTML = chapter.text;
+            document.getElementById('storySpeech').textContent = `${currentStoryData.botName} is telling the story...`;
+
+            // Reset question section
+            document.getElementById('storyQuestionSection').style.display = 'none';
+            document.getElementById('storyContinue').style.display = 'block';
+            document.getElementById('storyNext').classList.remove('visible');
+            storyQuestionAnswered = false;
+
+            if (chapter.question) {
+                document.getElementById('storyContinue').textContent = 'ANSWER QUESTION ►';
+            } else {
+                document.getElementById('storyContinue').textContent = 'CONTINUE ►';
+            }
+        }
+
+        function continueStory() {
+            playSound('click');
+            const chapter = currentStoryData.chapters[currentStoryChapter];
+
+            if (chapter.question && !storyQuestionAnswered) {
+                // Show question
+                document.getElementById('storyQuestionSection').style.display = 'block';
+                document.getElementById('storyContinue').style.display = 'none';
+                document.getElementById('storyQuestion').textContent = chapter.question.text;
+
+                const choicesDiv = document.getElementById('storyChoices');
+                choicesDiv.innerHTML = '';
+                chapter.question.choices.forEach((choice, index) => {
+                    const btn = document.createElement('button');
+                    btn.className = 'reading-choice';
+                    btn.textContent = choice;
+                    btn.onclick = () => checkStoryAnswer(btn, index, chapter.question.answer);
+                    choicesDiv.appendChild(btn);
+                });
+                document.getElementById('storySpeech').textContent = 'Answer the question about the story!';
+            } else {
+                // Move to next chapter or finish
+                if (currentStoryChapter < currentStoryData.chapters.length - 1) {
+                    currentStoryChapter++;
+                    loadStoryChapter();
+                } else {
+                    // Story complete
+                    missionStats.story++;
+                    const reward = activePowerup === 'double_energon' ? 60 : 30;
+                    showCelebration(currentStoryData.bot, `What a great story, Steven! You read the whole adventure!`, currentStoryData.botName, reward);
+                    totalEnergonEarned += reward;
+                    checkBadges();
+                    saveGameState();
+                    setTimeout(goBack, 3500);
+                }
+            }
+        }
+
+        function checkStoryAnswer(btn, index, correctAnswer) {
+            const buttons = document.querySelectorAll('#storyChoices .reading-choice');
+            if (index === correctAnswer) {
+                playSound('correct');
+                btn.classList.add('correct');
+                storyQuestionAnswered = true;
+                updateScore(15);
+                totalEnergonEarned += 15;
+                document.getElementById('storySpeech').textContent = "That's right! Great reading, Steven!";
+                buttons.forEach(b => b.style.pointerEvents = 'none');
+
+                // Show next button
+                if (currentStoryChapter < currentStoryData.chapters.length - 1) {
+                    document.getElementById('storyNext').classList.add('visible');
+                } else {
+                    setTimeout(continueStory, 1500);
+                }
+            } else {
+                playSound('wrong');
+                btn.classList.add('wrong');
+                document.getElementById('storySpeech').textContent = "Try again! Think about what happened in the story.";
+            }
+        }
+
+        function nextStoryChapter() {
+            playSound('click');
+            currentStoryChapter++;
+            loadStoryChapter();
+        }
+
         // Initialize
         createEnergonParticles();
         loadGameState();
+        renderShop();
     </script>
 </body>
 </html>
